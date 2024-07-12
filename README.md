@@ -1,6 +1,4 @@
-Here's a README for your shopping cart assignment:
 
----
 
 # Shopping Cart Assignment
 
