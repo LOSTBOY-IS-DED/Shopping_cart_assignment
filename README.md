@@ -18,7 +18,6 @@ This project is a simple shopping cart application built with HTML, JavaScript, 
     - [JavaScript](#javascript)
     - [Tailwind CSS](#tailwind-css)
   - [Contributing](#contributing)
-  - [License](#license)
 
 ## Installation
 
@@ -86,10 +85,6 @@ Tailwind CSS is used for styling the application. The CDN link for Tailwind CSS 
 
 If you would like to contribute to this project, please fork the repository and submit a pull request. You can also open an issue to report any bugs or request new features.
 
-## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
 
 This README provides a comprehensive overview of the shopping cart project, making it easy for others to understand and contribute.
