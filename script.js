@@ -58,6 +58,8 @@ function displayProducts(products) {
    
   const productListContainer = document.querySelector('.product-list');
   
+  productListContainer.innerHTML = '';
+
   products.forEach(product => {
     const productElement = document.createElement('div');
     productElement.classList.add('product', 'bg-white', 'p-4', 'rounded', 'shadow-md');
@@ -71,15 +73,15 @@ function displayProducts(products) {
     productPrice.classList.add('text-gray-700', 'mt-2');
 
     // Add to cart button
-    const addToCart = document.createElement('button');
-    addToCart.textContent = 'Add to Cart';
-    addToCart.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'mt-4');
-    addToCart.addEventListener('click', addToCart)
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Add to Cart';
+    addToCartButton.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'mt-4');
+    addToCartButton.addEventListener('click', addToCart)
 
     // Append elements => product container
     productElement.appendChild(productName);
     productElement.appendChild(productPrice);
-    productElement.appendChild(addToCart);
+    productElement.appendChild(addToCartButton);
 
     productListContainer.appendChild(productElement);
 });
