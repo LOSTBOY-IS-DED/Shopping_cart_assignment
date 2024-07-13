@@ -61,7 +61,7 @@ function displayProducts(products) {
   products.forEach(product => {
     const productElement = document.createElement('div');
     productElement.classList.add('product', 'bg-white', 'p-4', 'rounded', 'shadow-md');
-    
+
     const productName = document.createElement('h3');
     productName.textContent = product.name;
     productName.classList.add('text-lg', 'font-bold');
@@ -85,9 +85,14 @@ function displayProducts(products) {
 });
 }
 // add to cart
-function addToCart(){
+function addToCart(product){
+  cart.push(product);
+  updateCartDisplay();
 };
 // update cart display
+function updateCartDisplay(){
+
+};
 // remove from cart
 // clear cart
 window.addEventListener('DOMContentLoaded', (event) => {
