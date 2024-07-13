@@ -54,7 +54,45 @@ const products = [
 const cart = [];
 
 // display product
+function displayProducts(products) {
+   
+  const productListContainer = document.querySelector('.product-list');
+  
+  productListContainer.innerHTML = '';
+
+  products.forEach(product => {
+    const productElement = document.createElement('div');
+    productElement.classList.add('product', 'bg-white', 'p-4', 'rounded', 'shadow-md');
+    
+    const productName = document.createElement('h3');
+    productName.textContent = product.name;
+    productName.classList.add('text-lg', 'font-bold');
+
+    const productPrice = document.createElement('p');
+    productPrice.textContent = `$${product.price.toFixed(2)}`;
+    productPrice.classList.add('text-gray-700', 'mt-2');
+
+    // Add to cart button
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Add to Cart';
+    addToCartButton.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'mt-4');
+    addToCartButton.addEventListener('click', addToCart)
+
+    // Append elements => product container
+    productElement.appendChild(productName);
+    productElement.appendChild(productPrice);
+    productElement.appendChild(addToCartButton);
+
+    productListContainer.appendChild(productElement);
+});
+}
 // add to cart
+function addToCart(){
+};
 // update cart display
 // remove from cart
 // clear cart
+window.addEventListener('DOMContentLoaded', (event) => {
+  displayProducts(products);
+
+});
