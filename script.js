@@ -52,37 +52,78 @@ const products = [
 ];
 
 const cart = [];
-//Function to display products on the webpage
+// Function to display products on the webpage
 function displayProducts() {
-  let productListContainer = document.querySelector(`.product-list`);
-  //clear any existing content in the product list container
+  let productListContainer = document.querySelector('.product-list');
+
+  // Clear any existing content in the product list container
   productListContainer.innerHTML = '';
 
+  // Loop through the products array and create HTML elements for each product
   products.forEach(product => {
-    let productElement = document.createElement('div');
-    productElement.classList.add('product');
+      // Create a div element for each product
+      let productElement = document.createElement('div');
+      productElement.classList.add('product');
 
-    //Create the HTML Content for the product
-    productElement.innerHTML = `
-    <h3>${product.name}</h3>
-    <p>Price: $${product.price.toFixed(2)}</p>
-    <button oneclick="addToCart(${product.id})">Add to Cart</button>
-    `;
+      // Create the HTML content for the product
+      productElement.innerHTML = `
+          <h3>${product.name}</h3>
+          <p>Price: $${product.price.toFixed(2)}</p>
+          <button onclick="addToCart(${product.id})">Add to Cart</button>
+      `;
 
-    //Append the product element to the product list container
-    productListContainer.appendChild(productElement);
+      // Append the product element to the product list container
+      productListContainer.appendChild(productElement);
   });
 }
-// Function to add a product to the cart (similar to previous implementation)
+
+// Function to add a product to the cart
 function addToCart(productId) {
-  // Your addToCart logic here (as previously discussed)
-  console.log(`Adding product with ID ${productId} to cart...`);
+  // Find the product in the products array
+  let product = products.find(prod => prod.id === productId);
+
+  if (product) {
+      // Check if the product is already in the cart
+      let cartItem = cart.find(item => item.product.id === productId);
+
+      if (cartItem) {
+          // If the product is already in the cart, increase the quantity
+          cartItem.quantity++;
+      } else {
+          // If the product is not in the cart, add it with quantity 1
+          cart.push({ product: product, quantity: 1 });
+      }
+
+      // Optionally, you might want to update the total price of items in the cart
+      updateCartTotal();
+      
+      // You can also update the UI to reflect the updated cart
+      updateCartUI();
+  } else {
+      console.log(`Product with ID ${productId} not found.`);
+  }
 }
 
-// Call the displayProducts function when the page loads or whenever needed
+// Function to update the total price of items in the cart
+function updateCartTotal() {
+  let totalPrice = cart.reduce((total, item) => {
+      return total + (item.product.price * item.quantity);
+  }, 0);
+  console.log(`Total Price: $${totalPrice.toFixed(2)}`);
+}
+
+// Function to update the cart UI (for example, in a web application)
+function updateCartUI() {
+  // Example implementation to update a hypothetical UI element
+  console.log("Updating cart UI...");
+  console.log("Cart Items:");
+  cart.forEach(item => {
+      console.log(`${item.product.name} - Quantity: ${item.quantity}`);
+  });
+}
+
+// Call the displayProducts function when the page loads
 displayProducts();
-
-
 // display product
 // add to cart
 // update cart display

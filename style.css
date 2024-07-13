@@ -13,15 +13,41 @@ body {
   border: 1px solid white;
   padding: 10px;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
 
+.product h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.product p {
+  margin-bottom: 5px;
+}
 .cart-items {
   list-style: none;
   padding: 0;
 }
 
 .product button {
-  margin-left: 10px;
-  background-color: aqua;
-  color: aquamarine;
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #45a049; /* Darker green */
 }
