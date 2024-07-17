@@ -54,6 +54,13 @@ const products = [
 const cart = [];
 
 // display product
+
+const displayProducts =() => {
+  console.log("displayProducts");
+}
+
+
+
 // add to cart
 // update cart display
 // remove from cart
