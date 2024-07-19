@@ -55,13 +55,20 @@ const cart = [];
 
 // display product
 
-const displayProducts =() => {
-  console.log("displayProducts");
-}
+const displayProducts = () => {
+  const productList = document.querySelector(".product-list");
+  products.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.className = "bg-white shadow-md rounded p-4";
+    productCard.innerHTML = `
+      <h2 class="text-lg font-bold">${product.name}</h2>
+      <p class="text-gray-600">Price: ${product.price}</p>
+      <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded" onclick="addToCart(${product.id})">Add to cart</button>
+    `;
+    productList.appendChild(productCard);
+  });
+};
 
 
 
-// add to cart
-// update cart display
-// remove from cart
-// clear cart
+document.addEventListener("DOMContentLoaded",displayProducts);
