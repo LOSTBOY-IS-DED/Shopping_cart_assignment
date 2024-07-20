@@ -52,6 +52,36 @@ const products = [
 ];
 
 const cart = [];
+//Function to display products on the webpage
+function displayProducts() {
+  let productListContainer = document.querySelector(`.product-list`);
+  //clear any existing content in the product list container
+  productListContainer.innerHTML = '';
+
+  products.forEach(product => {
+    let productElement = document.createElement('div');
+    productElement.classList.add('product');
+
+    //Create the HTML Content for the product
+    productElement.innerHTML = `
+    <h3>${product.name}</h3>
+    <p>Price: $${product.price.toFixed(2)}</p>
+    <button oneclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+
+    //Append the product element to the product list container
+    productListContainer.appendChild(productElement);
+  });
+}
+// Function to add a product to the cart (similar to previous implementation)
+function addToCart(productId) {
+  // Your addToCart logic here (as previously discussed)
+  console.log(`Adding product with ID ${productId} to cart...`);
+}
+
+// Call the displayProducts function when the page loads or whenever needed
+displayProducts();
+
 
 // display product
 

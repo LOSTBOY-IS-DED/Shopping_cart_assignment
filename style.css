@@ -10,10 +10,18 @@ body {
 }
 
 .product {
+  border: 1px solid white;
+  padding: 10px;
   margin-bottom: 10px;
 }
 
 .cart-items {
   list-style: none;
   padding: 0;
+}
+
+.product button {
+  margin-left: 10px;
+  background-color: aqua;
+  color: aquamarine;
 }
